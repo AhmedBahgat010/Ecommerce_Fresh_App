@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:ecommerce_fresh_app/Screens/registration/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../Constant/My_colors/colors.dart';
+import 'home_screen/fresh_home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 5), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
+          MaterialPageRoute(builder: (context) => const FreshHomeScreen()));
     });
     super.initState();
   }
