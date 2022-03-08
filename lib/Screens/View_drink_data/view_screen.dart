@@ -9,8 +9,9 @@ import 'StakContainer.dart';
 class Data_Drink extends StatefulWidget {
   final Color colorContainer;
   final String image;
+    var items;
 
-  Data_Drink(this.colorContainer, this.image);
+  Data_Drink({required this.colorContainer, required this.image, this.items});
 
   @override
   _Data_DrinkState createState() => _Data_DrinkState();
@@ -21,6 +22,7 @@ class _Data_DrinkState extends State<Data_Drink> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+
           child: Column(
         children: [
           SizedBox(
@@ -31,15 +33,16 @@ class _Data_DrinkState extends State<Data_Drink> {
                 Container(
                   height: 300,
                   decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: widget.colorContainer,
                       image: DecorationImage(
+                        // fit:BoxFit.fill ,
                           image: AssetImage('assets/images/' + widget.image),
                           alignment: Alignment.center,
-                          scale: 8.0 ,
+                         scale: 6.0,
                          )),
                 ),
-                const Align(
-                    alignment: Alignment.bottomCenter, child: ContainerStak()),
+                 Align(
+                    alignment: Alignment.bottomCenter, child: ContainerStak(items: widget.items,)),
               ],
             ),
           ),

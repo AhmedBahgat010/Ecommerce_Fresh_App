@@ -1,6 +1,8 @@
-
 import 'package:ecommerce_fresh_app/Screens/cart/cart_screen.dart';
+import 'package:ecommerce_fresh_app/model/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 import '../../Constant/My_colors/colors.dart';
 
@@ -27,32 +29,49 @@ class _CartAppBarState extends State<CartAppBar> {
                   color: black, fontSize: 28, fontWeight: FontWeight.w700),
             ),
             InkWell(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const CartScreen()));
-              },
-              child: const Icon(
-                Icons.shopping_cart_outlined,
-                color: black,
-                size: 30,
-              ),
-            )
-            // IconButton(
-            //     onPressed: () {
-            //       Navigator.push(context,
-            //           MaterialPageRoute(builder: (context) =>
-            //           const CartScreen()));
-            //     },
-            //     icon: const Icon(
-            //       Icons.shopping_cart_outlined,
-            //       color: black,
-            //       size: 30,
-            //     ))
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CartScreen()));
+                },
+                child: Row(
+                  children: [
+                  const Icon(
+                  Icons.shopping_cart_outlined,
+                  color: black,
+                  size: 30,
+                ),
+                Container(
+                    child: Center(
+                        child: Consumer<Cart>(builder: (context, Cart, child) {
+                          return  Text
+                            ('${Cart.count}', style: TextStyle(color: white));
+                        })),
+                height: 20,
+                width: 20,
+                decoration:
+                BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(100),)),
+
           ],
         ),
-      ),
+      )
+      // IconButton(
+      //     onPressed: () {
+      //       Navigator.push(context,
+      //           MaterialPageRoute(builder: (context) =>
+      //           const CartScreen()));
+      //     },
+      //     icon: const Icon(
+      //       Icons.shopping_cart_outlined,
+      //       color: black,
+      //       size: 30,
+      //     ))
+      ],
+    ),)
+    ,
     );
   }
 }

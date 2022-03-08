@@ -34,7 +34,7 @@ class _SizeContainerState extends State<SizeContainer> {
       child: Container(
         height: 100,
         width: sizeFromWidth(context, 4),
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         // padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
             boxShadow: [
@@ -45,27 +45,27 @@ class _SizeContainerState extends State<SizeContainer> {
                 offset: const Offset(0, 2),
               )
             ],
-            color: widget.index_container_size == true ? pinkClear : white,
+            color: widget.index_container_size == true ? pinklight : white,
             borderRadius: const BorderRadius.all(Radius.circular(10))),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
           Image.asset(
             'assets/images/frappe.png',
             width: 60,
-            color: black,
+            color: widget.index_container_size ==
+                true ? pink : black,
           ),
           Text(widget.size,
               style: GoogleFonts.cairo(
-                textStyle: const TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.bold, color: gray),
+                textStyle: widget.index_container_size ==
+                    true ? pinkContainerFont : grayContainerFont,
               )),
           Text(
             widget.ml,
-            style: GoogleFonts.cairo(
-              textStyle: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.w500, color: gray),
-            ),
+            style: widget.index_container_size ==
+                true ? pinkContainerFont : grayContainerFont,
           ),
         ]),
       ),

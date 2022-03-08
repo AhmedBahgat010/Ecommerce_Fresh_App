@@ -6,7 +6,7 @@ class ConMenu extends StatelessWidget {
   String image;
   String name;
   String subtitle;
-  String price;
+  double price;
   Color color;
    Function onTap;
 
@@ -53,7 +53,7 @@ class ConMenu extends StatelessWidget {
                   ),
                   Text(subtitle,
                       style: const TextStyle(fontSize: 16, height: 1.5, color: gray)),
-                  Text(price, style: const TextStyle(fontSize: 18,
+                  Text('$price', style: const TextStyle(fontSize: 18,
                       height: 1.5,
                       color: pink,
                       fontWeight: FontWeight.w500)),

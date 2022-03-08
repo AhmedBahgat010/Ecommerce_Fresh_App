@@ -41,3 +41,11 @@ TextStyle graybold = GoogleFonts.cairo(
       fontSize: 30, fontWeight: FontWeight.bold, height: 1, color: gray),
 );
 
+TextStyle grayContainerFont = GoogleFonts.cairo(
+  textStyle: const TextStyle(
+      fontSize: 28, fontWeight: FontWeight.w600, color: gray),
+);
+TextStyle pinkContainerFont = GoogleFonts.cairo(
+  textStyle: const TextStyle(
+      fontSize: 28, fontWeight: FontWeight.w600, color: pink),
+);

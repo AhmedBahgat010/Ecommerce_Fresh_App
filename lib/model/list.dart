@@ -1,96 +1,127 @@
+import 'package:ecommerce_fresh_app/model/item.dart';
 
 import '../Constant/My_colors/colors.dart';
 
-List menu = [ coffeMenu, teaMenu, creamMenu, freezeMenu];
-List<List> coffeMenu =
-[
-  [
-    'coffee.png',
-    purple,
-    'Black Coffee',
-    'Really tasty black coffee',
-    '\$ 11.5',
-  ],
-  [
-    'cappuccino.png',
-    beige,
-    'Cappuccino',
-    'Single espresso shot and hot',
-    '\$9.0',
-  ],
-  [
-    'coffecup.png',
-    lightBlue,
-    'Coffee Cup',
-    'Sweet hot coffee',
-    '\13.5',
-  ],
+List menu = [coffeMenu, teaMenu, creamMenu, freezeMenu];
+
+List<Item> coffeMenu = [
+  Item(
+      image: 'coffee.png',
+      color: purple,
+      name: 'Black Coffee',
+      descriptionDrink: 'Really tasty black coffee',
+      price: 11.5),
+  Item(
+      image: 'cappuccino.png',
+      color: beige,
+      name: 'Cappuccino',
+      descriptionDrink: 'Single espresso shot and hot',
+      price: 9.0),
+  Item(
+      image: 'coffecup.png',
+      color: lightBlue,
+      name: 'Coffee Cup',
+      descriptionDrink: 'Sweet hot coffee',
+      price: 13.5),
 ];
-List<List> teaMenu = [
-  [
-    'tea.png',
-    pinkClear,
-    'orginal tea',
-    'Really great taste tea',
-    '\$6.0',
-  ],
-  [
-    'teamint.png',
-    green,
-    'Tea with mint',
-    'Really great for relaxation',
-    '\$7.5',
-  ],
-  ['teapuples.png',
-    red,
-    'Strawberry',
-    'Really great for refreshing',
-    '\$10.0',
-  ]
+List<Item> teaMenu = [
+  Item(
+      image: 'tea.png',
+      color: pinkClear,
+      name: 'orginal tea',
+      descriptionDrink: 'Really great taste tea',
+      price: 7.5),
+  Item(
+      image: 'teamint.png',
+      color: green,
+      name: 'Tea with mint',
+      descriptionDrink: 'Really great for relaxation',
+      price: 9.0),
+  Item(
+      image: 'teapuples.png',
+      color: red,
+      name: 'Strawberry',
+      descriptionDrink: 'Really great for refreshing',
+      price: 10.0),
+];
+
+List<Item> creamMenu = [
+  Item(
+      image: 'pineapple.png',
+      color: orange,
+      name: 'Aloha Pineapple',
+      descriptionDrink: 'pineapple sherbet strawberries',
+      price: 10.5),
+  Item(
+      image: 'gelato.png',
+      color: lightPurple,
+      name: 'Gelato',
+      descriptionDrink: 'Gelato choco ice cream',
+      price: 9.5),
+  Item(
+      image: 'chocalte.png',
+      color: darkPpurple,
+      name: 'Almond Chocolate',
+      descriptionDrink: 'Almond delicious ice cream',
+      price: 11.0)
+];
+List<Item> freezeMenu = [
+  Item(
+      image: 'orange.png',
+      color: pinkClear,
+      name: 'orange juice',
+      descriptionDrink: 'Really great taste orange juice',
+      price: 8.0),
+  Item(
+      image: 'greenjuice.png',
+      color: green,
+      name: 'Lavender Milk',
+      descriptionDrink: 'Really great as ice tea',
+      price: 6.5),
+  Item(
+      image: 'strawberry.png',
+      color: red,
+      name: 'Strawberry',
+      descriptionDrink: 'Fresh fruit juice that if full of',
+      price: 7.5),
 ];
 
 
-List<List> creamMenu = [
-  [
-    'pineapple.png',
-    orange,
-    'Aloha Pineapple',
-    'pineapple sherbet strawberries',
-    '\$10.5',
-  ],
-  [
-    'gelato.png',
-    lightPurple,
-    'Gelato',
-    'Gelato choco ice cream',
-    '\$9.5',
-  ],
-  [ 'chocalte.png',
-    darkPpurple,
-    'Almond Chocolate',
-    'Almond delicious ice cream',
-    '\$11.0',
-  ],
+List<Map<String, dynamic>> sugar = [
+  {
+    'size': '0%',
+    'isSelected': false,
+  },
+  {
+    'size': '25%',
+    'isSelected': false,
+  },
+  {
+    'size': '50%',
+    'isSelected': false,
+  },
+  {
+    'size': '100%',
+    'isSelected': false,
+  }
 ];
-List<List> freezeMenu = [
-  [
-    'orange.png',
-    pinkClear,
-    'orange juice',
-    'Really great taste orange juice',
-    '\8.0',
-  ],
-  [
-    'greenjuice.png',
-    green,
-    'Lavender Milk',
-    'Really great as ice tea',
-    '\$6.5',
-  ],
-  ['strawberry.png',
-    red,
-    'Strawberry',
-    'Fresh fruit juice that if full of',
-    '\$7.5',
-  ]
+List<Map<String, dynamic>> size = [
+  {
+    'size': 'Small',
+    'ml': '125 ml',
+    'sizeImg': 50.05,
+    'isSelected': false,
+  },
+  {
+    'size': 'Medium',
+    'ml': '250 ml',
+    'sizeImg': 80.50,
+    'isSelected': false,
+  },
+  {
+    'size': 'Large',
+    'ml': '500 ml',
+    'sizeImg': 100.50,
+    'isSelected': false,
+  },
 ];

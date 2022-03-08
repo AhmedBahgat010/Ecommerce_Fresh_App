@@ -16,7 +16,6 @@ class _OfferState extends State<Offer> {
         height: sizeFromHeight(context, 3.5),
         width: sizeFromWidth(context, 1),
         child: Carousel(
-
           images: [
             Image.asset('assets/images/1.jpg'),
             Image.asset('assets/images/2.jpg'),

@@ -1,33 +1,39 @@
 import 'package:ecommerce_fresh_app/Constant/my_Style/My_Style.dart';
 import 'package:ecommerce_fresh_app/Screens/home_screen/offer.dart';
+import 'package:ecommerce_fresh_app/model/cart.dart';
 import 'package:ecommerce_fresh_app/widgets/Container/Size_container.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../../Constant/My_colors/colors.dart';
+import '../../model/list.dart';
+import '../../widgets/Container/sugar_container.dart';
 
 class ContainerStak extends StatefulWidget {
-  const ContainerStak({Key? key}) : super(key: key);
+  var items;
+
+  ContainerStak({this.items});
 
   @override
   _ContainerStakState createState() => _ContainerStakState();
 }
 
 class _ContainerStakState extends State<ContainerStak> {
-
+  int num = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      height: MediaQuery.of(context).size.height/1.4,
-      width: sizeFromWidth(context, 1),
-      decoration: const BoxDecoration(
-          color: white,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(60), topRight: Radius.circular(60))),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+    return Consumer<Cart>(builder: (context, cart, child) {
+      return Container(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+        height: MediaQuery.of(context).size.height / 1.4,
+        width: sizeFromWidth(context, 1),
+        decoration: const BoxDecoration(
+            color: white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60), topRight: Radius.circular(60))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -46,7 +52,7 @@ class _ContainerStakState extends State<ContainerStak> {
               style: graybold,
             ),
             const SizedBox(
-              height: 30,
+              height: 22,
             ),
             SizedBox(
               height: 170,
@@ -77,32 +83,115 @@ class _ContainerStakState extends State<ContainerStak> {
                       },
                     );
                   }),
-            )
+            ),
+            const SizedBox(
+              height: 22,
+            ),
+            Text(
+              'Sugar Level',
+              style: graybold,
+            ),
+            const SizedBox(
+              height: 22,
+            ),
+            SizedBox(
+              height: 70,
+              width: sizeFromWidth(context, 1),
+              child: ListView.builder(
+                  itemCount: sugar.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return SugarLevel(
+                      sugarText: sugar[index]['size'],
+                      index_container_size: sugar[index]['isSelected'],
+                      ontap: () {
+                        setState(() {
+                          for (int i = 0; i < sugar.length; i++) {
+                            if (sugar[i]['isSelected'] == true) {
+                              setState(() {
+                                sugar[i]['isSelected'] = false;
+                              });
+                            }
+                          }
+                          setState(() {
+                            sugar[index]['isSelected'] = true;
+                          });
+                        });
+                      },
+                    );
+                  }),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                    height: 60,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      color: white,
+                      border: Border.all(width: 3.0),
+                      borderRadius: const BorderRadius.all(Radius.circular(
+                              50.0) //                 <--- border radius here
+                          ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.add, color: pink, size: 30),
+                          onPressed: () {
+                            setState(() {
+                              ++num;
+                            });
+                          },
+                        ),
+                        Text('$num', style: grayContainerFont),
+                        IconButton(
+                          icon: const Icon(Icons.remove, color: pink, size: 30),
+                          onPressed: () {
+                            if (num > 1) {
+                              setState(() {
+                                --num;
+                              });
+                            }
+                          },
+                        ),
+                      ],
+                    )),
+                InkWell(
+                  onTap: () {
+                    cart.add(widget.items);
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    height: 60,
+                    width: 170,
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 10),
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade400,
+                        spreadRadius: 1,
+                        blurRadius: 2,
+                        offset: const Offset(0, 2),
+                      )
+                    ], color: pink, borderRadius: BorderRadius.circular(10)),
+                    child: const Center(
+                        child: Text(
+                      "Add To Cart",
+                      style: TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500,
+                          color: white),
+                    )),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
-List <Map<String, dynamic>> size =[
-  {
-    'size': 'Small',
-    'ml': '125 ml',
-    'sizeImg': 50.05,
-    'isSelected' : false,
-  },
-  {
-    'size': 'Medium',
-    'ml': '250 ml',
-    'sizeImg': 80.50,
-    'isSelected': false,
-
-  },
-  {
-    'size': 'Large',
-    'ml': '500 ml',
-    'sizeImg':100.50,
-    'isSelected': false,
-
-  },
-];
