@@ -24,7 +24,8 @@ class _CartScreenState extends State<CartScreen> {
         child: Appar_Cart(),
       ),
       body: Consumer<Cart>(builder: (context, cart, child) {
-     return  cart.newOrder.isNotEmpty?
+     return  cart.newOrder.isNotEmpty  ?
+
           SingleChildScrollView(
             child: ListView.builder(
                 shrinkWrap: true,
@@ -32,6 +33,7 @@ class _CartScreenState extends State<CartScreen> {
                 padding: const EdgeInsets.all(10),
                 itemCount: cart.newOrder.length,
                 itemBuilder: (_, index) {
+
                   return ContainerNeworder(
                       image: cart.newOrder[index].image,
                       color: cart.newOrder[index].color,
