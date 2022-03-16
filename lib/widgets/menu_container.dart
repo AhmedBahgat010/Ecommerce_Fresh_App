@@ -6,8 +6,8 @@ class ConMenu extends StatelessWidget {
   String image;
   String name;
   String subtitle;
-  double price;
-  Color color;
+  num price;
+//  String color;
    Function onTap;
 
   ConMenu({Key? key,
@@ -15,7 +15,7 @@ class ConMenu extends StatelessWidget {
     required this.name,
     required this.subtitle,
     required this.price,
-    required this.color,
+    // required this.color,
     required this.onTap,
   }) : super(key: key);
 
@@ -37,8 +37,8 @@ class ConMenu extends StatelessWidget {
               width: 100,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: color,
-                  image: DecorationImage(image: AssetImage('assets/images/$image'))
+                  color: red,
+                  image: DecorationImage(image:NetworkImage(image))
               ),
             ),
             Padding(

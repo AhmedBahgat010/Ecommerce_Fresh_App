@@ -6,8 +6,8 @@ class ContainerNeworder extends StatelessWidget {
   String image;
   String name;
   String subtitle;
-  double price;
-  Color color;
+  num price;
+  // Color color;
 
 
   ContainerNeworder({Key? key,
@@ -15,7 +15,7 @@ class ContainerNeworder extends StatelessWidget {
     required this.name,
     required this.subtitle,
     required this.price,
-    required this.color,
+    // required this.color,
   }) : super(key: key);
 
   @override
@@ -32,7 +32,7 @@ class ContainerNeworder extends StatelessWidget {
             width: 100,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: color,
+                color: red,
                 image: DecorationImage(
                     image: AssetImage('assets/images/$image'))
             ),

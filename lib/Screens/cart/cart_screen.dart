@@ -36,7 +36,7 @@ class _CartScreenState extends State<CartScreen> {
 
                   return ContainerNeworder(
                       image: cart.newOrder[index].image,
-                      color: cart.newOrder[index].color,
+                      // color: cart.newOrder[index].color,
                       name: cart.newOrder[index].name,
                       subtitle: cart.newOrder[index].descriptionDrink,
                       price: cart.newOrder[index].price,

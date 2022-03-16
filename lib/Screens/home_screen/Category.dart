@@ -1,10 +1,8 @@
-import 'package:ecommerce_fresh_app/Screens/View_drink_data/view_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../Constant/My_colors/colors.dart';
-import '../../model/cart.dart';
+import '../../model/item.dart';
 import '../../model/list.dart';
-import '../../widgets/menu_container.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({Key? key}) : super(key: key);
@@ -17,6 +15,95 @@ class _CategoryScreenState extends State<CategoryScreen> {
   int pageIndex = 0;
   int? number_index;
 
+  getCoffeMenu() async {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('coffeMenu').get();
+
+    for (var doc in querySnapshot.docs) {
+      coffeMenu.add(
+        Item(
+            image: doc['image'],
+            // color: doc['color'],
+            name: doc['name'],
+            descriptionDrink: doc['descriptionDrink'],
+            price: doc['price']),
+      );
+    }
+
+    setState(() {});
+  }
+
+  getteaMenu() async {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('teaMenu').get();
+
+    for (var doc in querySnapshot.docs) {
+      teaMenu.add(
+        Item(
+            image: doc['image'],
+            // color: doc['color'],
+            name: doc['name'],
+            descriptionDrink: doc['descriptionDrink'],
+            price: doc['price']),
+      );
+    }
+
+    setState(() {});
+  }
+
+  getcreamMenu() async {
+    QuerySnapshot querySnapshot =
+        await FirebaseFirestore.instance.collection('creamMenu').get();
+
+    for (var doc in querySnapshot.docs) {
+      creamMenu.add(
+        Item(
+            image: doc['image'],
+            // color: doc['color'],
+            name: doc['name'],
+            descriptionDrink: doc['descriptionDrink'],
+            price: doc['price']),
+      );
+    }
+
+    setState(() {});
+  }
+
+  getfreezeMenu() async {
+    QuerySnapshot? querySnapshot = await FirebaseFirestore.instance
+        .collection('freezeMenu')
+        .get()
+        .then((value) {
+      print(value);
+    });
+
+    for (var doc in querySnapshot!.docs) {
+      freezeMenu.add(
+        Item(
+            image: doc['image'],
+            // color: doc['color'],
+            name: doc['name'],
+            descriptionDrink: doc['descriptionDrink'],
+            price: doc['price']),
+      );
+    }
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getCoffeMenu();
+    getcreamMenu();
+    getfreezeMenu();
+    getteaMenu();
+    print(coffeMenu);
+    print(freezeMenu);
+    print('0000000000000000000000000000000000000000000000000000');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +114,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
             GestureDetector(
               onTap: () {
                 setState(() {
+                  FirebaseFirestore.instance.collection('coffeMenu').add({
+                    "lol": "dddddddddddddddddddddddddd",
+                    "lol": "dddddddddddddddddddddddddd",
+                    "lol": "dddddddddddddddddddddddddd"
+                  });
                   pageIndex = 0;
+                  //print(menu[0][1].name);
+                  // print('11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111');
                 });
               },
               child: Container(
@@ -178,33 +272,32 @@ class _CategoryScreenState extends State<CategoryScreen> {
             )
           ],
         ),
-        ListView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.all(10),
-          itemCount: menu[pageIndex].length,
-          itemBuilder: (_, index) {
-            return  ConMenu(
-              image: menu[pageIndex][index].image,
-              color: menu[pageIndex][index].color,
-              name: menu[pageIndex][index].name,
-              subtitle: menu[pageIndex][index].descriptionDrink,
-              price: menu[pageIndex][index].price,
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          Data_Drink(
-                            image: menu[pageIndex][index].image,
-                            colorContainer: menu[pageIndex][index].color,
-                            items: menu[pageIndex][index],
-                          ),
-                    ));
-              },
-            );
-          },
-        ),
+        // ListView.builder(
+        //   shrinkWrap: true,
+        //   physics: const NeverScrollableScrollPhysics(),
+        //   padding: const EdgeInsets.all(10),
+        //   itemCount: coffeMenu.length,
+        //   itemBuilder: (_, index) {
+        //     return  ConMenu(
+        //       image: coffeMenu[index].image,
+        //       name: coffeMenu[index].name,
+        //       subtitle: coffeMenu[index].descriptionDrink,
+        //       price: coffeMenu[index].price,
+        //       onTap: () {
+        //         // Navigator.push(
+        //         //     context,
+        //         //     MaterialPageRoute(
+        //         //       builder: (context) =>
+        //         //           Data_Drink(
+        //         //             image: menu[pageIndex][index].image,
+        //         //             colorContainer: menu[pageIndex][index].color,
+        //         //             items: menu[pageIndex][index],
+        //         //           ),
+        //         //     ));
+        //       },
+        //     );
+        //   },
+        // ),
       ],
     );
   }

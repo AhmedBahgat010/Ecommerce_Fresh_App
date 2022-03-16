@@ -8,7 +8,8 @@ class Cart with ChangeNotifier {
       _items.add(item);
       print('item is not found');
       print('000000000000000000000000000000000000000000000000000000000000000');
-    }else{
+    }
+    else{
       print('item is found');
       print('000000000000000000000000000000000000000000000000000000000000000');
     }
@@ -23,7 +24,6 @@ class Cart with ChangeNotifier {
   double get allPrice {
     return _price;
   }
-
   List<Item> get newOrder {
     return _items;
   }
