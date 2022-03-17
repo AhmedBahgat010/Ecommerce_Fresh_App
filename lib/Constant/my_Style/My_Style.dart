@@ -49,3 +49,14 @@ TextStyle pinkContainerFont = GoogleFonts.cairo(
   textStyle: const TextStyle(
       fontSize: 28, fontWeight: FontWeight.w600, color: pink),
 );
+const kDefaultPadding = EdgeInsets.symmetric(horizontal: 30);
+
+TextStyle titleText =
+TextStyle(color: black, fontSize: 32, fontWeight: FontWeight.w700);
+TextStyle subTitle = TextStyle(
+    color: gray, fontSize: 18, fontWeight: FontWeight.w500);
+TextStyle textButton = TextStyle(
+  color: black,
+  fontSize: 18,
+  fontWeight: FontWeight.w700,
+);

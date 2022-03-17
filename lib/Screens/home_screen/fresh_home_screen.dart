@@ -21,8 +21,8 @@ class _FreshHomeScreenState extends State<FreshHomeScreen> {
       body: SingleChildScrollView(
           child: Column(
         children: const [
-          Offer(),
-          SizedBox(height: 20,),
+          // Offer(),
+           SizedBox(height: 20,),
           CategoryScreen(),
 
 

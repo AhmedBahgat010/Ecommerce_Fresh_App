@@ -27,19 +27,21 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
- firebase_core:
- cloud_firestore:
- firebase_storage:
- carousel_pro: ^1.0.0
- google_fonts:
- flutter_native_splash: ^0.2.8
- cupertino_icons: ^1.0.2
- provider: ^6.0.2
+  firebase_core:
+  cloud_firestore:
+#  firebase_storage:
+  #  carousel_pro:
+  google_fonts: ^2.3.1
+  #  flutter_native_splash
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.2
 
 
 
- flutter:
+  flutter:
     sdk: flutter
+  flutter_native_splash: ^2.1.1
+  firebase_storage: ^10.2.9
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,9 +49,15 @@ dependencies:
 
 
 dev_dependencies:
+
   flutter_test:
     sdk: flutter
-
+  flutter_native_splash: ^2.1.0
+flutter_native_splash:
+  color: "#042a49"
+  image: assets/images/splash.png
+  android_12:
+  android: true
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
