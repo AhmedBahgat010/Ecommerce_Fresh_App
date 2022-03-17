@@ -20,58 +20,52 @@ class _CartAppBarState extends State<CartAppBar> {
       child: Container(
         height: 40,
         padding: const EdgeInsets.all(5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Fresh',
-              style: TextStyle(
-                  color: black, fontSize: 28, fontWeight: FontWeight.w700),
-            ),
-            InkWell(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10,),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Fresh',
+                style: TextStyle(
+                    color: black, fontSize: 28, fontWeight: FontWeight.w700),
+              ),
+              InkWell(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const CartScreen()));
                 },
-                child: Row(
+                child: Stack(
+                  alignment: Alignment.topRight,
                   children: [
-                  const Icon(
-                  Icons.shopping_cart_outlined,
-                  color: black,
-                  size: 30,
+                    const Icon(
+                      Icons.shopping_cart_outlined,
+                      color: black,
+                      size: 35,
+                    ),
+                    Expanded(
+                      child: Container(
+                          child: Center(child:
+                              Consumer<Cart>(builder: (context, Cart, child) {
+                            return Text('${Cart.count}',
+                                style: TextStyle(color: white));
+                          })),
+                          height: 17,
+                          width: 17,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(100),
+                          )),
+                    ),
+                  ],
                 ),
-                Container(
-                    child: Center(
-                        child: Consumer<Cart>(builder: (context, Cart, child) {
-                          return  Text
-                            ('${Cart.count}', style: TextStyle(color: white));
-                        })),
-                height: 20,
-                width: 20,
-                decoration:
-                BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(100),)),
-
-          ],
+              ),
+            ],
+          ),
         ),
-      )
-      // IconButton(
-      //     onPressed: () {
-      //       Navigator.push(context,
-      //           MaterialPageRoute(builder: (context) =>
-      //           const CartScreen()));
-      //     },
-      //     icon: const Icon(
-      //       Icons.shopping_cart_outlined,
-      //       color: black,
-      //       size: 30,
-      //     ))
-      ],
-    ),)
-    ,
+      ),
     );
   }
 }

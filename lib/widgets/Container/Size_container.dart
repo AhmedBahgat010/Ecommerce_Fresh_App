@@ -48,26 +48,31 @@ class _SizeContainerState extends State<SizeContainer> {
             color: widget.index_container_size == true ? pinklight : white,
             borderRadius: const BorderRadius.all(Radius.circular(10))),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
+           mainAxisAlignment: MainAxisAlignment.center,
+             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-          Image.asset(
-            'assets/images/frappe.png',
-            width: 60,
-            color: widget.index_container_size ==
-                true ? pink : black,
-          ),
-          Text(widget.size,
-              style: GoogleFonts.cairo(
-                textStyle: widget.index_container_size ==
-                    true ? pinkContainerFont : grayContainerFont,
-              )),
-          Text(
-            widget.ml,
-            style: widget.index_container_size ==
-                true ? pinkContainerFont : grayContainerFont,
-          ),
-        ]),
+              Image.asset(
+                'assets/images/frappe.png',
+                width: widget.imgSize.toDouble(),
+                color: widget.index_container_size == true ? pink : black,
+              ),
+              Text(widget.size,
+                  style: GoogleFonts.cairo(
+                    textStyle: widget.index_container_size == true
+                        ? TextStyle(
+                        fontSize: 25, fontWeight: FontWeight.w800, color: pink)
+                        : TextStyle(
+                  fontSize: 25, fontWeight: FontWeight.w800, color: gray),
+                  )),
+              Text(
+                widget.ml,
+                style: widget.index_container_size == true
+                    ? TextStyle(
+                    fontSize: 25, fontWeight: FontWeight.w800, color: pink)
+                    : TextStyle(
+                    fontSize: 25, fontWeight: FontWeight.w800, color: gray),
+              ),
+            ]),
       ),
     );
   }

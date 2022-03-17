@@ -1,5 +1,7 @@
 import 'package:ecommerce_fresh_app/Constant/My_colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../Screens/home_screen/fresh_home_screen.dart';
 class LogInForm extends StatefulWidget {
   @override
   _LogInFormState createState() => _LogInFormState();
@@ -23,6 +25,7 @@ class _LogInFormState extends State<LogInForm> {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
+
         obscureText: pass ? _isObscure : false,
         decoration: InputDecoration(
             labelText: label,

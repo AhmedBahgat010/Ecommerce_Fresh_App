@@ -1,6 +1,7 @@
 import 'package:ecommerce_fresh_app/Constant/my_Style/My_Style.dart';
 import 'package:ecommerce_fresh_app/Screens/home_screen/offer.dart';
 import 'package:ecommerce_fresh_app/model/cart.dart';
+import 'package:ecommerce_fresh_app/model/item.dart';
 import 'package:ecommerce_fresh_app/widgets/Container/Size_container.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +13,9 @@ import '../../model/list.dart';
 import '../../widgets/Container/sugar_container.dart';
 
 class ContainerStak extends StatefulWidget {
-  var items;
+  Item items;
 
-  ContainerStak({this.items});
+  ContainerStak({required this.items});
 
   @override
   _ContainerStakState createState() => _ContainerStakState();
@@ -22,7 +23,14 @@ class ContainerStak extends StatefulWidget {
 
 class _ContainerStakState extends State<ContainerStak> {
   int num = 1;
-
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(size[0]['sizeImg'].runtimeType);
+    print(size[0]['sizeImg']);
+    print('000000000000000000');
+}
   @override
   Widget build(BuildContext context) {
     return Consumer<Cart>(builder: (context, cart, child) {
@@ -37,12 +45,14 @@ class _ContainerStakState extends State<ContainerStak> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('Tea with mint', style: pinkbold),
-                Text('\$7.5', style: pinkbold),
-              ],
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(widget.items.name, style: pinkbold),
+                  Text('\$${widget.items.price} ', style: pinkbold),
+                ],
+              ),
             ),
             const SizedBox(
               height: 30,
@@ -62,6 +72,7 @@ class _ContainerStakState extends State<ContainerStak> {
                   //physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
+                    print(size[index]['sizeImg']);
                     return SizeContainer(
                       imgSize: size[index]['sizeImg'],
                       ml: size[index]['ml'],

@@ -5,6 +5,8 @@ import 'package:ecommerce_fresh_app/widget/login_form.dart';
 import 'package:ecommerce_fresh_app/widget/login_option.dart';
 import 'package:ecommerce_fresh_app/widget/primary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../model/registration.dart';
 import 'forget _passward_screen.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: Padding(
           padding: kDefaultPadding,

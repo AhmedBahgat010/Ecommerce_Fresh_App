@@ -33,19 +33,20 @@ List<Map<String, dynamic>> size = [
   {
     'size': 'Small',
     'ml': '125 ml',
-    'sizeImg': 50.05,
+    'sizeImg': 40.05,
+
     'isSelected': false,
   },
   {
     'size': 'Medium',
     'ml': '250 ml',
-    'sizeImg': 80.50,
+    'sizeImg':60.50,
     'isSelected': false,
   },
   {
     'size': 'Large',
     'ml': '500 ml',
-    'sizeImg': 100.50,
+    'sizeImg': 80.50,
     'isSelected': false,
   },
 ];

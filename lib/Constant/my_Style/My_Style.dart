@@ -43,11 +43,11 @@ TextStyle graybold = GoogleFonts.cairo(
 
 TextStyle grayContainerFont = GoogleFonts.cairo(
   textStyle: const TextStyle(
-      fontSize: 28, fontWeight: FontWeight.w600, color: gray),
+      fontSize: 25, fontWeight: FontWeight.w800, color: gray),
 );
 TextStyle pinkContainerFont = GoogleFonts.cairo(
   textStyle: const TextStyle(
-      fontSize: 28, fontWeight: FontWeight.w600, color: pink),
+      fontSize: 25, fontWeight: FontWeight.w800, color: pink),
 );
 const kDefaultPadding = EdgeInsets.symmetric(horizontal: 30);
 

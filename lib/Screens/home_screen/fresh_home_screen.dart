@@ -20,8 +20,8 @@ class _FreshHomeScreenState extends State<FreshHomeScreen> {
       backgroundColor: white,
       body: SingleChildScrollView(
           child: Column(
-        children: const [
-          // Offer(),
+        children:  [
+          CarouselDemo(),
            SizedBox(height: 20,),
           CategoryScreen(),
 
